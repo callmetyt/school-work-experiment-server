@@ -16,13 +16,9 @@ app.all("*", function (req, res, next) {
 
 app.use(express.json());
 
-app.get("/", async function (req, res) {
-  res.json({
-    msg: "hello world",
-  });
-});
-
 app.use(heartDance);
+
+app.use(express.static("public"));
 
 app.listen(config.port, () => {
   console.log(`the serve is running on the port ${config.port}`);
